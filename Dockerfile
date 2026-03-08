@@ -20,15 +20,13 @@ RUN mvn clean package -DskipTests
 # 2. Runtime stage
 # ========================
 FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu as production
-
 # Directorio de trabajo
 WORKDIR /app
-
 # Copiar solo el jar desde el build stage
 COPY --from=build /app/target/*.jar app.jar
-
 # Exponer el puerto de Spring Boot
 EXPOSE 8080
 
 # Comando de arranque
+
 ENTRYPOINT ["java", "-jar", "/app.jar"]
