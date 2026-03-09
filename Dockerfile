@@ -2,11 +2,9 @@
 # 1. Build stage
 # ========================
 FROM maven:3.8.8-eclipse-temurin-17 AS build
-
 # Directorio de trabajo
 WORKDIR /app
-
-# Copiar el descriptor de dependencias primero para cachear mejor
+#Copiar el descriptor de dependencias primero para cachear mejor
 COPY pom.xml .
 RUN mvn dependency:go-offline
 
@@ -30,3 +28,4 @@ EXPOSE 8080
 # Comando de arranque
 
 ENTRYPOINT ["java", "-jar", "/app.jar"]
+
