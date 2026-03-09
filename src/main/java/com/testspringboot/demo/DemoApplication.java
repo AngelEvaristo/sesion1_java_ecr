@@ -11,7 +11,7 @@ public class DemoApplication {
 
 	@GetMapping("/weatherForecast")
 	public String getMessage() {
-		return "Today is a great sunny day for";
+		return "Hoy es un dia claro para promagar con Java";
 	}
 
 	public static void main(String[] args) {
